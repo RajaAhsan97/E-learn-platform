@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Course Edit {% endblock %}
+
+{% block content %}
+    <div class="contentMargin">
+        <div class="courseEditMsg">
+            <h2>
+                {% if object %}
+                    Edit course: {{ object.title }}
+                {% else %}
+                    Create course
+                {% endif %}
+            </h2>
+        </div>
+        <h4> Your course info </h4>
+
+        <form method='post'>
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            {% for field in form %}
+                {{ field.label_tag }}: <br>
+                {{ field }} <br> <br>
+            {% endfor %}
+            {% csrf_token %}
+            <input type="submit" value="Save Course" class="savebtn">
+        </form>
+    </div>
+{% endblock %}

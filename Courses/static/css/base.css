@@ -1,0 +1,102 @@
+
+.bdy {
+    background-color: antiquewhite;
+}
+
+.NAVBAR {
+    border-bottom: 3px solid black;;
+}
+
+.contentMargin {
+    margin: 5px 20px 5px 20px;
+    font-family: "Kanit", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+.contentMargin .loginmsg, .contentMargin .courseEditMsg {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.contentMargin .loginbtn, .contentMargin .savebtn, .contentMargin .delbtn {
+    background-color: dodgerblue;
+    border-radius: 10px;
+    border: 1px solid dodgerblue;
+}
+
+.contentMargin #spacing, .courseModuleCreate #spacing {
+    margin-left: 10px;
+}
+
+.contentMargin .courseList {
+    border: 2px solid black;
+    margin-top: 3px;
+    padding: 10px;
+}
+
+.contentMargin .courseList li {
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.contentMargin #moduleName {
+    margin-top: 20px;
+}
+
+.contentMargin #moduleName a {
+    background-color: antiquewhite;
+}
+
+.contentMargin .courseActions {
+    margin-top: 6px;
+}
+
+.contentMargin a, .courseModuleCreate a, .contentMargin .moduleDelBtn {
+    text-decoration: None;
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.contentMargin .moduleDelBtn {
+    color: dodgerblue;
+    border: none;
+}
+
+.contentMargin a:hover {
+    color: black;
+}
+
+.contentMargin .moduleDelForm {
+    margin-left: 10px;
+    display: inline;
+}
+
+.contentMargin .moduleActionBtns {
+    margin-left: 30px;
+}
+
+.contentMargin .moduleContents {
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.contentMargin .courseModuleCreate {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.moduleContent {
+    margin-top: 50px;
+}

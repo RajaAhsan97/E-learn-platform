@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %} course module {{module.title}} {% endblock %}
+
+{% block content %}
+    <div class="contentMargin">
+        <div>
+            <h3> {{ module.course.title }} </h3>
+            <hr> </hr>
+            <h4> Modules: </h4>
+            <ul>
+            {% for mod in module.course.course_module.all %}
+                <li id="moduleName"> 
+                    <a href="{% url "courses:moduleContentList" mod.id %}"> Module {{forloop.counter}}: {{ mod.title }} </a>
+                </li>
+            {% empty %}
+                No modules yet
+            {% endfor %}
+            </ul>
+            <div> 
+                <a href="{% url 'courses:course_module' module.course.id %}"> Edit module </a>
+            </div>
+        </div>
+
+        <div class="moduleContent">
+            
+            <h4> Module: {{ module.title }} </h4>
+            <hr> </hr>
+            <hr> </hr>
+            <h4> Module Contents: </h4>
+            {% for mod in module.content.all %}
+                <div class="moduleContents">
+                    {% with item=mod.item %}
+                        <ul>
+                            <li> {{item}} </li>
+                        </ul>
+                    {% endwith %}
+                    <div class="moduleActionBtns">
+                        <a href="#" id="p"> Edit </a> 
+                                              
+                        <form class="moduleDelForm" method='post' action="{% url 'courses:moduleContentDelete' mod.id %}">
+                            {% csrf_token %}
+                            <input type='submit' value='Delete' class="moduleDelBtn">
+                        </form> 
+                    </div>
+                    
+                </div>
+            {% empty %}
+                No module yet 
+            {% endfor %}
+        </div>
+
+        <div class="courseModuleCreate">
+            <h5> Add module content </h5>
+            <span>
+                <a href="{% url 'courses:moduleContentCreate' module.id 'image' %}"> Image </a>
+            </span>
+            <span id="spacing">
+                <a href="{% url 'courses:moduleContentCreate' module.id 'text' %}"> Text </a>
+            </span>
+            <span id="spacing">
+                <a href="{% url 'courses:moduleContentCreate' module.id 'video' %}"> Video </a>
+            </span>
+            <span id="spacing">
+                <a href="{% url 'courses:moduleContentCreate' module.id 'file' %}"> File </a>
+            </span>
+    </div>
+{% endblock %}

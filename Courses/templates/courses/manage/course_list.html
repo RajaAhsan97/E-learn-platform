@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Courses {% endblock %}
+
+{% block content %}
+    <div class="contentMargin">
+        <h2> Your courses </h2>
+        <ul>
+            {% for courses in object_list %}
+            <div class="courseList">
+                <li> {{ courses.title }} </li>
+                <p class="courseActions"> 
+                    <span> <a href="{% url "courses:update_course" courses.id %}"> Update </a> </span>
+                    <span id="spacing"> <a href="{% url "courses:delete_course" courses.id %}"> Delete </a> </span>
+                    {% comment %} <span id="spacing"> <a href="{% url "courses:course_module" courses.id %}"> Edit module </a> </span> {% endcomment %}
+                    <span id="spacing"> <a href="{% url "courses:moduleContentList" courses.course_module.first.id %}"> Manage module </a> </span>
+                </p>
+            </div>
+            {% empty %}
+            <li> You haven't created any course yet </li>
+            {% endfor %}
+        </ul>
+
+        <div>
+            <a href="{% url "courses:create_course" %}"> Create Course </a>
+        </div>
+    </div>
+{% endblock%}

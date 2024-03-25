@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+{% if object %} Edit content: {{ object.title }} {% else %} New content {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="contentMargin">
+        <h4> {% if object %}
+                Edit content: {{ object.title }}
+            {% else %}
+                New content 
+            {% endif %} </h4>
+        
+        <form method='post'>
+            {% for fields in form %}
+                {{ fields.label_tag }} <br>
+                {{ fields }} <br><br>
+            {% endfor %}
+            {% csrf_token %}
+            <input type="submit" value="Save Content" class="savebtn">
+
+        </form>
+    </div>
+{% endblock %}
